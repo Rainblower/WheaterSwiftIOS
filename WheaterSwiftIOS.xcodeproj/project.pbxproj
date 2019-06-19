@@ -14,6 +14,7 @@
 		10092FB622BA3287004499AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10092FB422BA3287004499AB /* LaunchScreen.storyboard */; };
 		10092FC122BA3288004499AB /* WheaterSwiftIOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10092FC022BA3288004499AB /* WheaterSwiftIOSTests.swift */; };
 		10092FCC22BA3288004499AB /* WheaterSwiftIOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10092FCB22BA3288004499AB /* WheaterSwiftIOSUITests.swift */; };
+		10092FDB22BA329D004499AB /* Wheater.xd in Resources */ = {isa = PBXBuildFile; fileRef = 10092FDA22BA329D004499AB /* Wheater.xd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		10092FC722BA3288004499AB /* WheaterSwiftIOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WheaterSwiftIOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		10092FCB22BA3288004499AB /* WheaterSwiftIOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheaterSwiftIOSUITests.swift; sourceTree = "<group>"; };
 		10092FCD22BA3288004499AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		10092FDA22BA329D004499AB /* Wheater.xd */ = {isa = PBXFileReference; lastKnownFileType = file; path = Wheater.xd; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		10092FAA22BA3287004499AB /* WheaterSwiftIOS */ = {
 			isa = PBXGroup;
 			children = (
+				10092FD922BA328D004499AB /* Resources */,
 				10092FAB22BA3287004499AB /* AppDelegate.swift */,
 				10092FAD22BA3287004499AB /* ViewController.swift */,
 				10092FAF22BA3287004499AB /* Main.storyboard */,
@@ -123,6 +126,14 @@
 				10092FCD22BA3288004499AB /* Info.plist */,
 			);
 			path = WheaterSwiftIOSUITests;
+			sourceTree = "<group>";
+		};
+		10092FD922BA328D004499AB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				10092FDA22BA329D004499AB /* Wheater.xd */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,6 +240,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10092FDB22BA329D004499AB /* Wheater.xd in Resources */,
 				10092FB622BA3287004499AB /* LaunchScreen.storyboard in Resources */,
 				10092FB322BA3287004499AB /* Assets.xcassets in Resources */,
 				10092FB122BA3287004499AB /* Main.storyboard in Resources */,
