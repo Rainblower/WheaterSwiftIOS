@@ -16,7 +16,7 @@ class PageContentViewController: UIViewController {
     @IBOutlet weak var wheaterLabel: UILabel!
     @IBOutlet weak var degLabel: UILabel!
     
-    @IBOutlet weak var pages: UIPageControl!
+
     var city = ""
     var wheater = ""
     var deg = ""
@@ -29,7 +29,6 @@ class PageContentViewController: UIViewController {
         wheaterLabel.text = wheater
         degLabel.text = deg
 
-        pages.currentPage = pageIndex
         // Do any additional setup after loading the view.
     }
     

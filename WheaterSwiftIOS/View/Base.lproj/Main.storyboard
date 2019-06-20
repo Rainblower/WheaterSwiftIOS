@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="C0i-k5-z8y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SiV-ZK-Vbl">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,10 +10,54 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Weather View Controller-->
+        <scene sceneID="cp9-I3-svK">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7fM-on-7b7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="SiV-ZK-Vbl" customClass="WeatherViewController" customModule="WheaterSwiftIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QBf-4c-Ezn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xUa-uf-1YU">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="1064"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1064" id="FW6-4W-mEx"/>
+                                    <constraint firstAttribute="width" constant="414" id="aig-xc-T7j"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="C0i-k5-z8y" kind="embed" id="SSH-kq-AnS"/>
+                                </connections>
+                            </containerView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="vjf-HW-hHQ">
+                                <rect key="frame" x="187.5" y="825" width="39" height="37"/>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="xUa-uf-1YU" firstAttribute="top" secondItem="QBf-4c-Ezn" secondAttribute="top" id="MVP-NZ-z8D"/>
+                            <constraint firstItem="vjf-HW-hHQ" firstAttribute="centerX" secondItem="UXx-3v-p7X" secondAttribute="centerX" id="TC5-w0-Anb"/>
+                            <constraint firstItem="xUa-uf-1YU" firstAttribute="trailing" secondItem="UXx-3v-p7X" secondAttribute="trailing" id="Xgn-sw-jer"/>
+                            <constraint firstItem="vjf-HW-hHQ" firstAttribute="centerY" secondItem="UXx-3v-p7X" secondAttribute="centerY" constant="390.5" id="gDC-sc-JZw"/>
+                            <constraint firstItem="xUa-uf-1YU" firstAttribute="leading" secondItem="UXx-3v-p7X" secondAttribute="leading" id="jPr-CQ-uEy"/>
+                            <constraint firstAttribute="bottom" secondItem="xUa-uf-1YU" secondAttribute="bottom" constant="-168" id="ysb-cs-qF1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="UXx-3v-p7X"/>
+                    </view>
+                    <connections>
+                        <outlet property="container" destination="xUa-uf-1YU" id="e7d-eT-JQ5"/>
+                        <outlet property="pageControl" destination="vjf-HW-hHQ" id="IYT-3h-JPS"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-31.884057971014496" y="26.785714285714285"/>
+        </scene>
         <!--Weather Controller-->
         <scene sceneID="fyH-Fk-bqm">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="C0i-k5-z8y" customClass="WeatherController" customModule="WheaterSwiftIOS" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="C0i-k5-z8y" customClass="WeatherController" customModule="WheaterSwiftIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="kO1-i9-8Ba"/>
+                </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dN7-Is-oKq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="835" y="27"/>
@@ -49,15 +93,10 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="URF-Es-lpL">
-                                <rect key="frame" x="179.5" y="798" width="55" height="37"/>
-                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="v3R-D4-zDb" firstAttribute="centerX" secondItem="ak3-XI-tbi" secondAttribute="centerX" id="1Xa-F7-zOe"/>
-                            <constraint firstItem="URF-Es-lpL" firstAttribute="centerX" secondItem="ak3-XI-tbi" secondAttribute="centerX" id="3Xm-u9-AQY"/>
-                            <constraint firstItem="ak3-XI-tbi" firstAttribute="bottom" secondItem="URF-Es-lpL" secondAttribute="bottom" constant="27" id="4YC-bv-5Zu"/>
                             <constraint firstItem="sAm-oK-nJ7" firstAttribute="centerX" secondItem="v3R-D4-zDb" secondAttribute="centerX" id="Cd2-Ch-X5C"/>
                             <constraint firstItem="sAm-oK-nJ7" firstAttribute="top" secondItem="v3R-D4-zDb" secondAttribute="bottom" constant="4" id="EdR-34-MNk"/>
                             <constraint firstItem="T46-Yy-34g" firstAttribute="centerX" secondItem="ak3-XI-tbi" secondAttribute="centerX" id="Fyr-Am-87E"/>
@@ -69,7 +108,6 @@
                     <connections>
                         <outlet property="cityLabel" destination="T46-Yy-34g" id="iCT-Ch-wfQ"/>
                         <outlet property="degLabel" destination="sAm-oK-nJ7" id="iuX-ne-5oD"/>
-                        <outlet property="pages" destination="URF-Es-lpL" id="ubx-vZ-qW4"/>
                         <outlet property="wheaterLabel" destination="v3R-D4-zDb" id="r6d-jK-vYf"/>
                     </connections>
                 </viewController>
