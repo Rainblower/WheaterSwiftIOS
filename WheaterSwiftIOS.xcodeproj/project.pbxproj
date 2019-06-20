@@ -8,13 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		10092FAC22BA3287004499AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10092FAB22BA3287004499AB /* AppDelegate.swift */; };
-		10092FAE22BA3287004499AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10092FAD22BA3287004499AB /* ViewController.swift */; };
 		10092FB122BA3287004499AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10092FAF22BA3287004499AB /* Main.storyboard */; };
 		10092FB322BA3287004499AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10092FB222BA3287004499AB /* Assets.xcassets */; };
 		10092FB622BA3287004499AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10092FB422BA3287004499AB /* LaunchScreen.storyboard */; };
 		10092FC122BA3288004499AB /* WheaterSwiftIOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10092FC022BA3288004499AB /* WheaterSwiftIOSTests.swift */; };
 		10092FCC22BA3288004499AB /* WheaterSwiftIOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10092FCB22BA3288004499AB /* WheaterSwiftIOSUITests.swift */; };
 		10092FDB22BA329D004499AB /* Wheater.xd in Resources */ = {isa = PBXBuildFile; fileRef = 10092FDA22BA329D004499AB /* Wheater.xd */; };
+		103F7AAC22BBAED30020D713 /* WeatherController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103F7AAB22BBAED30020D713 /* WeatherController.swift */; };
+		103F7AAE22BBB0D70020D713 /* PageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103F7AAD22BBB0D70020D713 /* PageContentViewController.swift */; };
+		103F7AB122BBB35B0020D713 /* OpenWheather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103F7AB022BBB35B0020D713 /* OpenWheather.swift */; };
+		103F7AB322BBB3EE0020D713 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103F7AB222BBB3EE0020D713 /* Weather.swift */; };
+		103F7AB522BBB4380020D713 /* Coord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103F7AB422BBB4380020D713 /* Coord.swift */; };
+		103F7AB722BBB5660020D713 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103F7AB622BBB5660020D713 /* Main.swift */; };
+		103F7AB922BBB6220020D713 /* Sys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103F7AB822BBB6220020D713 /* Sys.swift */; };
+		103F7ABB22BBB6BF0020D713 /* Wind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103F7ABA22BBB6BF0020D713 /* Wind.swift */; };
+		103F7ABD22BBB6EC0020D713 /* Clouds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103F7ABC22BBB6EC0020D713 /* Clouds.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +45,6 @@
 /* Begin PBXFileReference section */
 		10092FA822BA3287004499AB /* WheaterSwiftIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WheaterSwiftIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10092FAB22BA3287004499AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		10092FAD22BA3287004499AB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		10092FB022BA3287004499AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		10092FB222BA3287004499AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		10092FB522BA3287004499AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +56,15 @@
 		10092FCB22BA3288004499AB /* WheaterSwiftIOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheaterSwiftIOSUITests.swift; sourceTree = "<group>"; };
 		10092FCD22BA3288004499AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10092FDA22BA329D004499AB /* Wheater.xd */ = {isa = PBXFileReference; lastKnownFileType = file; path = Wheater.xd; sourceTree = "<group>"; };
+		103F7AAB22BBAED30020D713 /* WeatherController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherController.swift; sourceTree = "<group>"; };
+		103F7AAD22BBB0D70020D713 /* PageContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageContentViewController.swift; sourceTree = "<group>"; };
+		103F7AB022BBB35B0020D713 /* OpenWheather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWheather.swift; sourceTree = "<group>"; };
+		103F7AB222BBB3EE0020D713 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		103F7AB422BBB4380020D713 /* Coord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coord.swift; sourceTree = "<group>"; };
+		103F7AB622BBB5660020D713 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
+		103F7AB822BBB6220020D713 /* Sys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sys.swift; sourceTree = "<group>"; };
+		103F7ABA22BBB6BF0020D713 /* Wind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wind.swift; sourceTree = "<group>"; };
+		103F7ABC22BBB6EC0020D713 /* Clouds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clouds.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,12 +115,12 @@
 		10092FAA22BA3287004499AB /* WheaterSwiftIOS */ = {
 			isa = PBXGroup;
 			children = (
+				103F7AAF22BBB3500020D713 /* Model */,
+				103F7A6822BBAC040020D713 /* View */,
+				103F7A6722BBABFC0020D713 /* Controller */,
 				10092FD922BA328D004499AB /* Resources */,
 				10092FAB22BA3287004499AB /* AppDelegate.swift */,
-				10092FAD22BA3287004499AB /* ViewController.swift */,
-				10092FAF22BA3287004499AB /* Main.storyboard */,
 				10092FB222BA3287004499AB /* Assets.xcassets */,
-				10092FB422BA3287004499AB /* LaunchScreen.storyboard */,
 				10092FB722BA3287004499AB /* Info.plist */,
 			);
 			path = WheaterSwiftIOS;
@@ -134,6 +150,38 @@
 				10092FDA22BA329D004499AB /* Wheater.xd */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		103F7A6722BBABFC0020D713 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				103F7AAB22BBAED30020D713 /* WeatherController.swift */,
+				103F7AAD22BBB0D70020D713 /* PageContentViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		103F7A6822BBAC040020D713 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				10092FAF22BA3287004499AB /* Main.storyboard */,
+				10092FB422BA3287004499AB /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		103F7AAF22BBB3500020D713 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				103F7AB022BBB35B0020D713 /* OpenWheather.swift */,
+				103F7AB222BBB3EE0020D713 /* Weather.swift */,
+				103F7AB422BBB4380020D713 /* Coord.swift */,
+				103F7AB622BBB5660020D713 /* Main.swift */,
+				103F7AB822BBB6220020D713 /* Sys.swift */,
+				103F7ABA22BBB6BF0020D713 /* Wind.swift */,
+				103F7ABC22BBB6EC0020D713 /* Clouds.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,8 +316,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10092FAE22BA3287004499AB /* ViewController.swift in Sources */,
+				103F7AAE22BBB0D70020D713 /* PageContentViewController.swift in Sources */,
+				103F7AB122BBB35B0020D713 /* OpenWheather.swift in Sources */,
+				103F7ABB22BBB6BF0020D713 /* Wind.swift in Sources */,
 				10092FAC22BA3287004499AB /* AppDelegate.swift in Sources */,
+				103F7AB922BBB6220020D713 /* Sys.swift in Sources */,
+				103F7AB522BBB4380020D713 /* Coord.swift in Sources */,
+				103F7AAC22BBAED30020D713 /* WeatherController.swift in Sources */,
+				103F7AB722BBB5660020D713 /* Main.swift in Sources */,
+				103F7AB322BBB3EE0020D713 /* Weather.swift in Sources */,
+				103F7ABD22BBB6EC0020D713 /* Clouds.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

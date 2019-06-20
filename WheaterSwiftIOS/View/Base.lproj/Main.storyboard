@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="C0i-k5-z8y">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Weather Controller-->
+        <scene sceneID="fyH-Fk-bqm">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="C0i-k5-z8y" customClass="WeatherController" customModule="WheaterSwiftIOS" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dN7-Is-oKq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="835" y="27"/>
+        </scene>
+        <!--Page Content View Controller-->
+        <scene sceneID="suO-dc-bhL">
+            <objects>
+                <viewController storyboardIdentifier="PageContentViewController" id="PQo-8q-9HG" customClass="PageContentViewController" customModule="WheaterSwiftIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="erg-Ll-h3c">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="g9x-ci-XKs">
+                                <rect key="frame" x="-42" y="-32" width="522" height="950"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T46-Yy-34g">
+                                <rect key="frame" x="181" y="114" width="52" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wheater" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v3R-D4-zDb">
+                                <rect key="frame" x="174.5" y="158" width="65.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="PageContentViewController" text="Deg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAm-oK-nJ7">
+                                <rect key="frame" x="163" y="183" width="88.5" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="URF-Es-lpL">
+                                <rect key="frame" x="179.5" y="798" width="55" height="37"/>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="v3R-D4-zDb" firstAttribute="centerX" secondItem="ak3-XI-tbi" secondAttribute="centerX" id="1Xa-F7-zOe"/>
+                            <constraint firstItem="URF-Es-lpL" firstAttribute="centerX" secondItem="ak3-XI-tbi" secondAttribute="centerX" id="3Xm-u9-AQY"/>
+                            <constraint firstItem="ak3-XI-tbi" firstAttribute="bottom" secondItem="URF-Es-lpL" secondAttribute="bottom" constant="27" id="4YC-bv-5Zu"/>
+                            <constraint firstItem="sAm-oK-nJ7" firstAttribute="centerX" secondItem="v3R-D4-zDb" secondAttribute="centerX" id="Cd2-Ch-X5C"/>
+                            <constraint firstItem="sAm-oK-nJ7" firstAttribute="top" secondItem="v3R-D4-zDb" secondAttribute="bottom" constant="4" id="EdR-34-MNk"/>
+                            <constraint firstItem="T46-Yy-34g" firstAttribute="centerX" secondItem="ak3-XI-tbi" secondAttribute="centerX" id="Fyr-Am-87E"/>
+                            <constraint firstItem="T46-Yy-34g" firstAttribute="top" secondItem="ak3-XI-tbi" secondAttribute="top" constant="70" id="OxX-JE-zvs"/>
+                            <constraint firstItem="v3R-D4-zDb" firstAttribute="top" secondItem="T46-Yy-34g" secondAttribute="bottom" constant="8" id="XUk-Z8-IZ4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ak3-XI-tbi"/>
+                    </view>
+                    <connections>
+                        <outlet property="cityLabel" destination="T46-Yy-34g" id="iCT-Ch-wfQ"/>
+                        <outlet property="degLabel" destination="sAm-oK-nJ7" id="iuX-ne-5oD"/>
+                        <outlet property="pages" destination="URF-Es-lpL" id="ubx-vZ-qW4"/>
+                        <outlet property="wheaterLabel" destination="v3R-D4-zDb" id="r6d-jK-vYf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9z6-cS-yRr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1536.2318840579712" y="26.785714285714285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Background" width="187.5" height="406"/>
+    </resources>
+</document>
