@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WeatherController: UIPageViewController {
+class WeatherController: UIPageViewController  {
     
     weak var weatherDelegate: WeatherPageViewControllerDelegate?
     
@@ -23,32 +23,55 @@ class WeatherController: UIPageViewController {
         dataSource = self
         delegate = self
         
-    
-     
+        
+        
+        
         for city in saveCities.reversed() {
             
             fetchData(city: city)
             self.mainGroup.wait()
-        
+            
         }
         mainGroup.wait()
-   
+        
         
         setViewControllers([getViewControllerAtIndex(index: cities.reversed().count-1)],
-                            direction: .forward,
-                            animated: true)
+                           direction: .forward,
+                           animated: true)
         
         
         weatherDelegate?.weatherPageViewController(weatherPageViewController: self,
                                                    didUpdatePageCount: cities.count)
-        }
+    }
     
-//        self.setViewControllers([getViewControllerAtIndex(index: cities.count - 1)], direction: .reverse, animated: true, completion: nil)
-
-        // Do any additional setup after loading the view.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let desitnationViewController = segue.destination as? CityTableViewController else { return }
+        desitnationViewController.cities = cities
+    }
     
-
-
+    @IBAction func unwindToTable(_ unwindSegue: UIStoryboardSegue) {
+        guard let sourceViewController = unwindSegue.source as? CityTableViewController else { return }
+        let cityIndex = sourceViewController.selectedIndex
+        
+        cities = sourceViewController.cities
+        weatherDelegate?.weatherPageViewController(weatherPageViewController: self, didUpdatePageCount: cities.count)
+        
+        weatherDelegate?.weatherPageViewController(weatherPageViewController: self, didUpdatePageIndex: cityIndex)
+        setViewControllers([getViewControllerAtIndex(index: cityIndex)],
+                           direction: .forward,
+                           animated: true)
+        
+        // Use data from the view controller which initiated the unwind segue
+    }
+    
+    
+    
+    //        self.setViewControllers([getViewControllerAtIndex(index: cities.count - 1)], direction: .reverse, animated: true, completion: nil)
+    
+    // Do any additional setup after loading the view.
+    
+    
+    
     func fetchData(city: String) {
         self.mainGroup.enter()
         let url = URL(string: "http://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=481fe76799a037e2752c45759ed5b3ab&units=metric")
@@ -63,11 +86,11 @@ class WeatherController: UIPageViewController {
                 print(openWeather.name)
                 self.cities.append(openWeather)
                 self.mainGroup.leave()
-  
+                
             } catch {
                 print(error)
             }
-
+            
             }.resume()
         
         return
@@ -81,6 +104,7 @@ extension WeatherController: UIPageViewControllerDataSource, UIPageViewControlle
                             didFinishAnimating finished: Bool,
                             previousViewControllers: [UIViewController],
                             transitionCompleted completed: Bool) {
+        
         if let firstViewController = viewControllers?.first,
             let firstIndex = cities.firstIndex(where: { (ow) -> Bool in
                 guard let firstController = firstViewController as? PageContentViewController else { return false }
@@ -89,10 +113,10 @@ extension WeatherController: UIPageViewControllerDataSource, UIPageViewControlle
                 } else {
                     return false
                 }}){
-                weatherDelegate?.weatherPageViewController(weatherPageViewController: self,
-                                                           didUpdatePageIndex: firstIndex)
-            }
+            weatherDelegate?.weatherPageViewController(weatherPageViewController: self,
+                                                       didUpdatePageIndex: firstIndex)
         }
+    }
     
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
@@ -133,9 +157,9 @@ extension WeatherController: UIPageViewControllerDataSource, UIPageViewControlle
         // Create a new view controller and pass suitable data.
         let pageContentViewController = self.storyboard?.instantiateViewController(withIdentifier: "PageContentViewController") as! PageContentViewController
         pageContentViewController.pageIndex = index
-        pageContentViewController.city = cities[index].name
-        pageContentViewController.wheater = cities[index].weather[0].description.capitalized
-        pageContentViewController.deg = "\(Int(cities[index].main.temp))º"
+        pageContentViewController.city = cities[index].name!
+        pageContentViewController.wheater = cities[index].weather![0].description!.capitalized
+        pageContentViewController.deg = "\(Int(cities[index].main!.temp!))º"
         print()
         print(cities[index].name)
         return pageContentViewController
@@ -148,12 +172,12 @@ extension WeatherController: UIPageViewControllerDataSource, UIPageViewControlle
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {
         guard let firstController = viewControllers?.first,
             let firstIndex = cities.firstIndex(where: { (ow) -> Bool in
-            guard let firstController = firstController as? PageContentViewController else { return false }
-            if ow.name == firstController.city {
-                return true
-            } else {
-                return false
-            }}) else { return 0}
+                guard let firstController = firstController as? PageContentViewController else { return false }
+                if ow.name == firstController.city {
+                    return true
+                } else {
+                    return false
+                }}) else { return 0}
         
         return firstIndex
     }
@@ -164,17 +188,17 @@ extension WeatherController: UIPageViewControllerDataSource, UIPageViewControlle
 protocol WeatherPageViewControllerDelegate: class {
     
     
-//     Called when the number of pages is updated.
+    //     Called when the number of pages is updated.
     
-
+    
     func weatherPageViewController(weatherPageViewController: WeatherController,
-                                    didUpdatePageCount count: Int)
+                                   didUpdatePageCount count: Int)
     
- 
-//     Called when the current index is updated.
     
- 
+    //     Called when the current index is updated.
+    
+    
     func weatherPageViewController(weatherPageViewController: WeatherController,
-                                    didUpdatePageIndex index: Int)
+                                   didUpdatePageIndex index: Int)
     
 }

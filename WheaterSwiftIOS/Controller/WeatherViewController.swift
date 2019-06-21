@@ -8,16 +8,27 @@
 
 import UIKit
 
-class WeatherViewController: UIViewController {
+class WeatherViewController: UIViewController{
 
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var container: UIView!
+    @IBOutlet weak var viewLeftConstraint: NSLayoutConstraint!
     
+    weak var controller: WeatherController?
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let weatherPageViewController = segue.destination as? WeatherController {
             weatherPageViewController.weatherDelegate = self
+            controller = weatherPageViewController
         }
     }
+    
+
+    
+    @IBAction func burgerClick(_ sender: Any) {
+        controller?.performSegue(withIdentifier: "CityTable", sender: controller)
+    }
+    
 }
 
 extension WeatherViewController: WeatherPageViewControllerDelegate {

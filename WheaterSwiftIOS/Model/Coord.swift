@@ -9,6 +9,6 @@
 import Foundation
 
 struct Coord: Decodable {
-    let lon: Double
-    let lat: Double
+    let lon: Double?
+    let lat: Double?
 }
