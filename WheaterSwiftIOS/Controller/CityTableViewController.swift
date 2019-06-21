@@ -12,7 +12,7 @@ class CityTableViewController: UIViewController, UITextFieldDelegate {
 
     let mainGroup = DispatchGroup()
     var cities: [OpenWheather] = []
-    var saveCities = ["Moscow","Kazan","Omsk","Sankt-peterburg"]
+    var saveCities: [String] = []
     var selectedIndex = 0
     var timer: Timer!
 
@@ -35,13 +35,12 @@ class CityTableViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
         searchTextField.delegate = self
+
         
-//        for city in saveCities.reversed() {
-//
-//            fetchData(city: city)
-//            self.mainGroup.wait()
-//
-//        }
+        for city in cities.reversed() {
+            saveCities.append(city.name!)
+        }
+        
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -56,14 +55,21 @@ class CityTableViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func updateData() {
-        cities = []
-        for city in saveCities.reversed() {
+       
+       cities = []
+        saveCities.reverse()       
+        for city in saveCities {
     
             fetchData(city: city)
             self.mainGroup.wait()
     
         }
+        
+        cities.reverse()
+        
         tableView.reloadData()
+        
+        cities.reversed()
     }
 
     func showAlert(message: String) {
@@ -160,7 +166,7 @@ class CityTableViewController: UIViewController, UITextFieldDelegate {
         guard let cityName = searchTextField.text else { return }
         
         if cities.contains(where: { (OpenWheather: OpenWheather) -> Bool in
-            if OpenWheather.name == cityName {
+            if OpenWheather.name == cityName.capitalized {
                 showAlert(message: "City already exist")
                
                 return true
@@ -171,7 +177,8 @@ class CityTableViewController: UIViewController, UITextFieldDelegate {
            return
         }
         
-        saveCities.append(cityName)
+        saveCities.reverse()
+            saveCities.append(cityName)
         searchTextField.text = ""
         edititengEnd()
         updateData()
@@ -200,7 +207,6 @@ extension CityTableViewController: UITableViewDelegate, UITableViewDataSource {
         cell.degLabel.text = "\(Int((city.main?.temp!)!))º"
         cell.timeLabel.text = formater.string(from: currentDate)
        
-
         // Configure the cell...
         
         return cell
@@ -218,7 +224,7 @@ extension CityTableViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        selectedIndex = indexPath.row
+        selectedIndex = cities.count - 1 - indexPath.row
 //        timer.invalidate()
         performSegue(withIdentifier: "SelectCity", sender: self)
     }

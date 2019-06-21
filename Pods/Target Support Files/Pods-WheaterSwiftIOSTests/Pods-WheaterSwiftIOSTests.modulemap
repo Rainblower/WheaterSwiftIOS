@@ -1,0 +1,6 @@
+framework module Pods_WheaterSwiftIOSTests {
+  umbrella header "Pods-WheaterSwiftIOSTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

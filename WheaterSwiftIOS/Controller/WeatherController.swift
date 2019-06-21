@@ -46,14 +46,14 @@ class WeatherController: UIPageViewController  {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let desitnationViewController = segue.destination as? CityTableViewController else { return }
-        desitnationViewController.cities = cities
+        desitnationViewController.cities = cities.reversed()
     }
     
     @IBAction func unwindToTable(_ unwindSegue: UIStoryboardSegue) {
         guard let sourceViewController = unwindSegue.source as? CityTableViewController else { return }
         let cityIndex = sourceViewController.selectedIndex
         
-        cities = sourceViewController.cities
+        cities = sourceViewController.cities.reversed()
         weatherDelegate?.weatherPageViewController(weatherPageViewController: self, didUpdatePageCount: cities.count)
         
         weatherDelegate?.weatherPageViewController(weatherPageViewController: self, didUpdatePageIndex: cityIndex)
