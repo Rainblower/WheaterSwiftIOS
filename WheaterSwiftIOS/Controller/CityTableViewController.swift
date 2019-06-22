@@ -57,7 +57,7 @@ class CityTableViewController: UIViewController, UITextFieldDelegate {
     @objc func updateData() {
        
        cities = []
-        saveCities.reverse()       
+        saveCities.reverse()
         for city in saveCities {
     
             fetchData(city: city)
@@ -68,8 +68,8 @@ class CityTableViewController: UIViewController, UITextFieldDelegate {
         cities.reverse()
         
         tableView.reloadData()
-        
-        cities.reversed()
+//        
+//        cities.reverse()
     }
 
     func showAlert(message: String) {
@@ -105,13 +105,12 @@ class CityTableViewController: UIViewController, UITextFieldDelegate {
                 
                 if openWeatherError?.code == 404 {
                    self.mainGroup.leave()
-                    DispatchQueue.main.async {
-                        
+                    
                         self.showAlert(message: "City not found")
 
                         
                         return
-                    }
+                    
                     
                 } else {
                     if openWeather != nil {
@@ -143,10 +142,10 @@ class CityTableViewController: UIViewController, UITextFieldDelegate {
     func edititengEnd() {
         self.view.endEditing(true)
         
-        tableViewTopConstraint.constant = 0
-        UIView.animate(withDuration: 0.2) {
-            self.view.layoutIfNeeded()
-        }
+//        tableViewTopConstraint.constant = 0
+//        UIView.animate(withDuration: 0.2) {
+//            self.view.layoutIfNeeded()
+//        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -154,10 +153,10 @@ class CityTableViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func printStart(_ sender: Any) {
-        tableViewTopConstraint.constant = -250
-        UIView.animate(withDuration: 0.2) {
-            self.view.layoutIfNeeded()
-        }
+//        tableViewTopConstraint.constant = -250
+//        UIView.animate(withDuration: 0.2) {
+//            self.view.layoutIfNeeded()
+//        }
         
     }
 
@@ -227,6 +226,18 @@ extension CityTableViewController: UITableViewDelegate, UITableViewDataSource {
         selectedIndex = cities.count - 1 - indexPath.row
 //        timer.invalidate()
         performSegue(withIdentifier: "SelectCity", sender: self)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            cities.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.reloadData()
+            
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
     }
 }
 
